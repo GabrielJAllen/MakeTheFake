@@ -5,7 +5,9 @@ class Load extends Phaser.Scene {
 
 
     preload() {
+        this.load.image('bg', './assets/img/Background.png')
         this.load.spritesheet('spacePrompt', './assets/img/spacebar.png', {frameWidth: 32, frameHeight: 16})
+        this.load.spritesheet('heart', './assets/img/Heart-Sheet.png', {frameWidth: 36, frameHeight: 36})
     }
 
     create() {
