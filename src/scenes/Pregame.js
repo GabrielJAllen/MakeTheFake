@@ -4,8 +4,8 @@ class Pregame extends Phaser.Scene {
     }
 
     create(){
-
         
+
     }
     
 }

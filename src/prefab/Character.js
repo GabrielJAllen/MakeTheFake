@@ -12,15 +12,25 @@ class Character extends Phaser.Physics.Arcade.Sprite{
             attack: new AttackState()
         }, [scene, this])*/
     }
+}
 
+class IdleState extends State {
+    enter(scene, player) {
+        player.anims.play('boss-idle')
+    }
 
+    execute(scene, boss) {
+        const { KEYS } = scene
 
+        // dodge
+        if(Phaser.Input.Keyboard.JustDown(KEYS.JUMP)) {
+            this.stateMachine.transition('jump')
+        }
 
-
-
-
-
-
-
-
+        // attack
+        if(KEYS.LEFT.isDown || KEYS.RIGHT.isDown) {
+            this.stateMachine.transition('walk')
+            return
+        }
+    }
 }

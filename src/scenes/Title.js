@@ -8,6 +8,9 @@ class Title extends Phaser.Scene {
         let start_prompt = this.add.sprite(centerX, centerY+20, 'spacePrompt', 0)
         start_prompt.scale = 4
         start_prompt.anims.play('space_prompt')
+        
+        //TEXT
+        //need Title
     }
 
     update(){
