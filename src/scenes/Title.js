@@ -10,7 +10,8 @@ class Title extends Phaser.Scene {
         start_prompt.anims.play('space_prompt')
         
         //TEXT
-        //need Title
+        //need Title in the top center "Flametail Fighter" for now until we decide a name
+        //below the spacebar animation "Press Space to Character Select"
     }
 
     update(){

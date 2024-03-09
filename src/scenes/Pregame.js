@@ -4,7 +4,7 @@ class Pregame extends Phaser.Scene {
     }
 
     create(){
-        
+        //this.player1 = new Character()
 
     }
     
