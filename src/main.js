@@ -3,7 +3,7 @@ let config = {
     render: {
         pixelArt: true
     },
-    height: 224,
+    height: 274,
     width: 552,
     scale: {
         autoCenter: Phaser.Scale.CENTER_BOTH
@@ -19,7 +19,7 @@ let config = {
         }
     },
     zoom: 2,
-    scene: [ Load , Keys, Title , Pregame ]
+    scene: [ Load , Keys, Title , Pregame, Play ]
 }
 let game = new Phaser.Game(config)
 
