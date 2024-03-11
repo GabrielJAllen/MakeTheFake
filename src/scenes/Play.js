@@ -5,7 +5,13 @@ class Play extends Phaser.Scene {
 
     create(){
         this.KEYS = this.scene.get('keysScene').KEYS
-        //this.sound.play('bgm', { volume: 0.25 })
+        this.bgm = this.sound.add('bgm', { 
+            mute: false,
+            volume: .5,
+            rate: 1,
+            loop: true 
+        })
+        this.bgm.play()
         this.add.image(276, 162, 'bg').setScale(4);
         this.add.bitmapText(centerX, 20, 'Pixel_font', ':', 30).setOrigin(0.5)
         this.add.bitmapText(centerX - 30, 20, 'Pixel_font', '0', 30).setOrigin(0.5)

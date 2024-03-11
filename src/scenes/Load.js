@@ -14,6 +14,8 @@ class Load extends Phaser.Scene {
         // Load audio
         this.load.audio('hit', "./assets/audio/temp_hit.wav")
         this.load.audio('click', './assets/audio/maou_se_system1.mp3')
+        this.load.audio('attack', './assets/audio/maou_se_Attack.mp3')
+        this.load.audio('bgm', './assets/audio/maou_bgm2.mp3')
         this.load.audio('bgm', './assets/audio/maou_bgm1.mp3')
         // Load font
         this.load.bitmapFont('Pixel_font', './assets/font/Pixel.png', './assets/font/Pixel.xml')

@@ -75,6 +75,7 @@ class DodgeState extends State {
             
             player.setNX(centerX - 70)
             scene.time.delayedCall(400, () => {player.setNX(centerX-20)})
+            
             scene.time.delayedCall(500, () => {this.stateMachine.transition('idle')})
         }else{
             player.setX(centerX + 70)
@@ -89,8 +90,10 @@ class LAttackState extends State {
     enter(scene, player){
         if(player.getNum() == 1){
             player.anims.play('player1Attack')
+            scene.time.delayedCall(200, () => {scene.sound.play('attack', { volume: 0.25 })})
         }else{
             player.anims.play('player2Attack')
+            scene.time.delayedCall(200, () => {scene.sound.play('attack', { volume: 0.25 })})
         }
         scene.time.delayedCall(500, () => {this.stateMachine.transition('idle')})
     }
