@@ -4,6 +4,7 @@ class Play extends Phaser.Scene {
     }
 
     create(){
+        this.KEYS = this.scene.get('keysScene').KEYS
         //this.sound.play('bgm', { volume: 0.25 })
         this.add.image(276, 162, 'bg').setScale(4);
         this.add.bitmapText(centerX, 20, 'Pixel_font', ':', 30).setOrigin(0.5)
@@ -23,13 +24,20 @@ class Play extends Phaser.Scene {
         let p2heart3 = this.add.sprite(422, 30, 'heart', 0).setOrigin(0.5)
         p2heart3.anims.play('HeartIdle')
         // set player
-        let Player1 = this.add.sprite(centerX - 20, centerY + 50, 'player1', 0).setOrigin(0.5)
+        /*let Player1 = this.add.sprite(centerX - 20, centerY + 50, 'player1', 0).setOrigin(0.5)
         Player1.anims.play('player1Idle')
         let Player2 = this.add.sprite(centerX + 20, centerY + 50, 'player2', 0).setOrigin(0.5)
-        Player2.anims.play('player2Idle')
+        Player2.anims.play('player2Idle')*/
+        this.Player1 = new Character(this, centerX - 20, centerY + 50, 'player1', 0, 1)
+        this.Player2 = new Character(this, centerX + 20, centerY + 50, 'player2', 0, 2)
         
         
     }
 
-    
+    update(){
+        const {KEYS} = this
+
+        this.Player1SM.step()
+        this.Player2SM.step()
+    }
 }

@@ -29,9 +29,9 @@ class Load extends Phaser.Scene {
 
         this.anims.create({
             key:'player1Attack',
-            frameRate: 2,
-            repeat: 0,
-            frames: this.anims.generateFrameNumbers('player1', { start: 0, end: 1 }),
+            frameRate: 5,
+            repeat: 1,
+            frames: this.anims.generateFrameNumbers('player1', { frames:[0,1,0] }),
         })
         this.anims.create({
             key:'player1Idle',
@@ -42,9 +42,9 @@ class Load extends Phaser.Scene {
 
         this.anims.create({
             key:'player2Attack',
-            frameRate: 2,
-            repeat: 0,
-            frames: this.anims.generateFrameNumbers('player2', { start: 0, end: 1 }),
+            frameRate: 5,
+            repeat: 1,
+            frames: this.anims.generateFrameNumbers('player2', { frames:[0,1,0] }),
         })
         this.anims.create({
             key:'player2Idle',
@@ -57,6 +57,12 @@ class Load extends Phaser.Scene {
             frameRate: 1,
             repeat: 0,
             frames: this.anims.generateFrameNumbers('heart', { frames:[0] }),
+        })
+        this.anims.create({
+            key:'HeartDamage',
+            frameRate: 1,
+            repeat: 0,
+            frames: this.anims.generateFrameNumbers('heart', { start: 0, end: 3 }),
         })
         // go to Title scene
         this.scene.start('keysScene')
