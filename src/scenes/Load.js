@@ -62,7 +62,7 @@ class Load extends Phaser.Scene {
         })
         this.anims.create({
             key:'HeartDamage',
-            frameRate: 1,
+            frameRate: 3,
             repeat: 0,
             frames: this.anims.generateFrameNumbers('heart', { start: 0, end: 3 }),
         })

@@ -2,6 +2,7 @@ class Character extends Phaser.Physics.Arcade.Sprite{
     constructor(scene, x, y, texture, frame = 0, playerNum){
         super(scene, x, y, texture, frame)
         this.NUM = playerNum
+        this.HEALTH = 3
         scene.add.existing(this)
         scene.physics.add.existing(this)
         if(this.NUM == 1){
@@ -33,6 +34,12 @@ class Character extends Phaser.Physics.Arcade.Sprite{
     setNX(x){
         this.setX(x)
         return
+    }
+    getHEALTH(){
+        return this.HEALTH
+    }
+    setHEALTH(x){
+        this.HEALTH = x
     }
 }
 
@@ -90,10 +97,16 @@ class LAttackState extends State {
     enter(scene, player){
         if(player.getNum() == 1){
             player.anims.play('player1Attack')
+            scene.jitter(player)
             scene.time.delayedCall(200, () => {scene.sound.play('attack', { volume: 0.25 })})
+            scene.time.delayedCall(200, () => {scene.attack1.setPosition(centerX + 50, centerY + 60)})
+            scene.time.delayedCall(400, () => {scene.attack1.setPosition(0,0)})
         }else{
             player.anims.play('player2Attack')
+            scene.jitter(player)
             scene.time.delayedCall(200, () => {scene.sound.play('attack', { volume: 0.25 })})
+            scene.time.delayedCall(200, () => {scene.attack2.setPosition(centerX - 50, centerY + 60)})
+            scene.time.delayedCall(400, () => {scene.attack2.setPosition(0,0)})
         }
         scene.time.delayedCall(500, () => {this.stateMachine.transition('idle')})
     }
