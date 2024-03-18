@@ -7,7 +7,12 @@ class Load extends Phaser.Scene {
     preload() {
         // Load image
         this.load.image('bg', './assets/img/Background.png')
+        this.load.image('solid', './assets/img/solid.png')
         this.load.spritesheet('spacePrompt', './assets/img/spacebar.png', {frameWidth: 32, frameHeight: 16})
+        this.load.spritesheet('leftPrompt', './assets/img/left_prompt.png', {frameWidth: 10, frameHeight: 10})
+        this.load.spritesheet('rightPrompt', './assets/img/right_prompt.png', {frameWidth: 10, frameHeight: 10})
+        this.load.spritesheet('aPrompt', './assets/img/a_prompt.png', {frameWidth: 10, frameHeight: 10})
+        this.load.spritesheet('dPrompt', './assets/img/d_prompt.png', {frameWidth: 10, frameHeight: 10})
         this.load.spritesheet('heart', './assets/img/Heart-Sheet.png', {frameWidth: 36, frameHeight: 36})
         this.load.spritesheet('player1', './assets/img/PlayerRed-Sheet.png', {frameWidth: 143, frameHeight: 128})
         this.load.spritesheet('player2', './assets/img/PlayerBlue-Sheet.png', {frameWidth: 143, frameHeight: 128})
@@ -27,6 +32,34 @@ class Load extends Phaser.Scene {
             frameRate: 2,
             repeat: -1,
             frames: this.anims.generateFrameNumbers('spacePrompt', { start: 0, end: 1 }),
+        })
+
+        this.anims.create({
+            key:'left_prompt',
+            frameRate: 2,
+            repeat: -1,
+            frames: this.anims.generateFrameNumbers('leftPrompt', { start: 0, end: 1 }),
+        })
+
+        this.anims.create({
+            key:'right_prompt',
+            frameRate: 2,
+            repeat: -1,
+            frames: this.anims.generateFrameNumbers('rightPrompt', { start: 0, end: 1 }),
+        })
+
+        this.anims.create({
+            key:'a_prompt',
+            frameRate: 2,
+            repeat: -1,
+            frames: this.anims.generateFrameNumbers('aPrompt', { start: 0, end: 1 }),
+        })
+
+        this.anims.create({
+            key:'d_prompt',
+            frameRate: 2,
+            repeat: -1,
+            frames: this.anims.generateFrameNumbers('dPrompt', { start: 0, end: 1 }),
         })
 
         this.anims.create({

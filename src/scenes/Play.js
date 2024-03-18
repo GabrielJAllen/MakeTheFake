@@ -14,8 +14,10 @@ class Play extends Phaser.Scene {
         this.bgm.play()
         this.add.image(276, 162, 'bg').setScale(4);
         this.add.bitmapText(centerX, 20, 'Pixel_font', ':', 30).setOrigin(0.5)
-        this.add.bitmapText(centerX - 30, 20, 'Pixel_font', '0', 30).setOrigin(0.5)
-        this.add.bitmapText(centerX + 30, 20, 'Pixel_font', '0', 30).setOrigin(0.5)
+        this.score1 = this.add.bitmapText(centerX - 30, 20, 'Pixel_font', '0', 30).setOrigin(0.5)
+        this.score2 = this.add.bitmapText(centerX + 30, 20, 'Pixel_font', '0', 30).setOrigin(0.5)
+        this.ps1 = 0
+        this.ps2 = 0
         // set HP bar
         this.p1heart1 = this.add.sprite(70, 30, 'heart', 0).setOrigin(0.5)
         this.p1heart1.anims.play('HeartIdle')
@@ -37,8 +39,6 @@ class Play extends Phaser.Scene {
         this.Player2 = new Character(this, centerX + 20, centerY + 50, 'player2', 0, 2)
         this.attack2 = this.add.rectangle(0,0, 5, 5)
         this.physics.add.existing(this.attack2)
-        
-        
     }
 
     update(){
