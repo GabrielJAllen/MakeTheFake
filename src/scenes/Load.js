@@ -70,9 +70,15 @@ class Load extends Phaser.Scene {
         })
         this.anims.create({
             key:'player1Dodge',
-            frameRate: 5,
-            repeat: 1,
-            frames: this.anims.generateFrameNumbers('player1', { frames:[4, 5, 6, 6, 7, 8, 9, 10]  }),
+            frameRate: 8,
+            repeat: 0,
+            frames: this.anims.generateFrameNumbers('player1', { frames:[4, 5, 6, 6, 7, 8, 9, 10, 11]  }),
+        })
+        this.anims.create({
+            key:'player1Jump',
+            frameRate: 8,
+            repeat: 0,
+            frames: this.anims.generateFrameNumbers('player1', { frames:[ 9, 8, 7, 6, 6, 5 ]  }),
         })
         this.anims.create({
             key:'player1Idle',
@@ -95,10 +101,11 @@ class Load extends Phaser.Scene {
         })
         this.anims.create({
             key:'player2Dodge',
-            frameRate: 5,
-            repeat: 1,
+            frameRate: 6,
+            repeat: 0,
             frames: this.anims.generateFrameNumbers('player2', { frames:[4, 5, 6, 6, 7, 8, 9, 10]  }),
         })
+        
 
         this.anims.create({
             key:'HeartIdle',

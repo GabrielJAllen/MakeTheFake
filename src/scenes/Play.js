@@ -72,6 +72,19 @@ class Play extends Phaser.Scene {
         target.setX(target.x + 1)
     }
 
+    jump(target){
+        this.tweens.add({
+            targets: target,
+            x: centerX - 120,
+            ease: "Sine.easeInOut",
+            duration: 400,
+            hold: 700,
+            repeat:0,
+            yoyo: true,
+            onYoyo: () => { target.anims.play('player1Jump') }
+        })
+    }
+
     damage(target){
         this.tweens.add({
             targets: target,

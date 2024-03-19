@@ -8,7 +8,7 @@ class Pregame extends Phaser.Scene {
         let start_prompt = this.add.sprite(centerX, centerY+70, 'spacePrompt', 0)
         start_prompt.scale = 4
         start_prompt.anims.play('space_prompt')
-        this.add.bitmapText(centerX, centerY + 120, 'Pixel_font', 'Press Space to Play', 15).setOrigin(0.5)
+        this.add.bitmapText(centerX, centerY + 120, 'Pixel_font', 'Press Space to return', 15).setOrigin(0.5)
 
         this.add.bitmapText(120, 40, 'Pixel_font', 'Player 1 Controls', 20).setOrigin(0.5)
         let a_prompt = this.add.sprite(60, 80, 'aPrompt', 0)
@@ -49,7 +49,7 @@ class Pregame extends Phaser.Scene {
     update(){
         const { KEYS } = this
         if (Phaser.Input.Keyboard.JustDown(KEYS.SPACE)) {
-            this.scene.start('playScene')
+            this.scene.start('titleScene')
             //this.scene.start('pregameScene')
             this.sound.play('click', { volume: 0.25 })
         }
