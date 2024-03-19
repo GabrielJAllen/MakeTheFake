@@ -32,6 +32,12 @@ class Pregame extends Phaser.Scene {
         left_prompt.anims.play('left_prompt')
         this.add.bitmapText(game.config.width-180, 120, 'Pixel_font', 'Left to Attack', 15).setOrigin(0.5)
 
+        if (this.textures.exists('titlesnapshot')) {
+            this.titleSnap = this.add.image(centerX, centerY, 'titlesnapshot').setOrigin(0.5)
+        } else {
+            console.log('texture error')
+        }
+
         let line = new Phaser.Geom.Line(0, 0, game.config.width + 30, 0);
 
         this.trans = this.add.particles(0, 0, 'solid', {
@@ -39,16 +45,24 @@ class Pregame extends Phaser.Scene {
             lifespan: 1000,
             frequency: 5,
             scale: 5,
-            tint: [ 0xffff00, 0xff0000, 0x00ff00, 0x00ffff, 0x0000ff ],
+            tint: [ 0xffffff, 0xadadad, 0x707070, 0x424242 ],
             emitZone: { type: 'edge', source: line, quantity: 12 },
-            active:false,
-            advance: 0
+            active:true,
+            advance: -50
         })
+
+        this.time.delayedCall(500, () => {[this.trans.emitting = false,this.titleSnap.alpha = 0]})
     }
     
     update(){
         const { KEYS } = this
         if (Phaser.Input.Keyboard.JustDown(KEYS.SPACE)) {
+            let textureManager = this.textures
+            this.game.renderer.snapshot((snapshotImage) => {
+            if(textureManager.exists('transnapshot')) {
+                textureManager.remove('transnapshot')
+            }
+            textureManager.addImage('transnapshot', snapshotImage)})
             this.scene.start('titleScene')
             //this.scene.start('pregameScene')
             this.sound.play('click', { volume: 0.25 })

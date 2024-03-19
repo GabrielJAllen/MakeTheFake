@@ -79,12 +79,12 @@ class IdleState extends State {
 class DodgeState extends State {
     enter(scene, player){
         if(player.getNum() == 1){
-            player.anims.play('player1Dodge')
-            scene.jump(player)
-            //player.setNX(centerX - 70)
-            //scene.time.delayedCall(400, () => {player.setNX(centerX-20)})
+            //player.anims.play('player1Dodge')
+            //scene.jump(player)
+            player.setNX(centerX - 70)
+            scene.time.delayedCall(400, () => {player.setNX(centerX-20)})
             
-            scene.time.delayedCall(1200, () => {this.stateMachine.transition('idle')})
+            scene.time.delayedCall(500, () => {this.stateMachine.transition('idle')})
         }else{
             player.setX(centerX + 70)
             scene.time.delayedCall(400, () => {player.setX(centerX+20)})

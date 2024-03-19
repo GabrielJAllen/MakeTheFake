@@ -1,3 +1,7 @@
+//Gabriel Allen and Qizhe Lao
+//Utilized Tween Manager, Animation Manager, Timers, Text Objects, and Particle System
+
+
 let config = {
     type: Phaser.AUTO,
     render: {

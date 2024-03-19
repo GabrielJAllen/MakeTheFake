@@ -72,7 +72,7 @@ class Play extends Phaser.Scene {
         target.setX(target.x + 1)
     }
 
-    jump(target){
+    /*jump(target){
         this.tweens.add({
             targets: target,
             x: centerX - 120,
@@ -83,7 +83,7 @@ class Play extends Phaser.Scene {
             yoyo: true,
             onYoyo: () => { target.anims.play('player1Jump') }
         })
-    }
+    }*/
 
     damage(target){
         this.tweens.add({
