@@ -32,9 +32,9 @@ class Title extends Phaser.Scene {
         const { KEYS } = this
         if (Phaser.Input.Keyboard.JustDown(KEYS.SPACE)) {
             this.trans.active = true
-            this.time.delayedCall(1000, () => this.scene.launch('pregameScene'), null, this)
-            this.time.delayedCall(1000, () => this.scene.moveAbove('pregameScene'), null, this)
-            //this.scene.start('pregameScene')
+            //this.time.delayedCall(1000, () => this.scene.launch('pregameScene'), null, this)
+            //this.time.delayedCall(1000, () => this.scene.moveAbove('pregameScene'), null, this)
+            this.scene.start('pregameScene')
             this.sound.play('click', { volume: 0.25 })
         }
     }
