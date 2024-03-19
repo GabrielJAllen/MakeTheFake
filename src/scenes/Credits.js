@@ -11,7 +11,7 @@ class Credits extends Phaser.Scene {
         //} else {
         //    console.log('texture error')
         //}
-            let start_prompt = this.add.sprite(centerX, h-45, 'spacePrompt', 0)
+            let start_prompt = this.add.sprite(centerX, h-50, 'spacePrompt', 0)
             start_prompt.scale = 3
             start_prompt.anims.play('space_prompt')
             this.add.bitmapText(centerX, h - 20, 'Pixel_font', 'Press Space to return', 15).setOrigin(0.5)
