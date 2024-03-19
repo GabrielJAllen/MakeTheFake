@@ -6,9 +6,9 @@ class Character extends Phaser.Physics.Arcade.Sprite{
         scene.add.existing(this)
         scene.physics.add.existing(this)
         if(this.NUM == 1){
-            this.body.setOffset(10, 0)
+            this.body.setOffset(10, 30)
         }else{
-            this.body.setOffset(85,0)
+            this.body.setOffset(85,30)
         }
         
         this.body.setSize(50, 128, false)

@@ -33,11 +33,11 @@ class Play extends Phaser.Scene {
         this.p2heart3 = this.add.sprite(422, 30, 'heart', 0).setOrigin(0.5)
         this.p2heart3.anims.play('HeartIdle')
         // set player
-        this.Player1 = new Character(this, centerX - 20, centerY + 50, 'player1', 0, 1)
+        this.Player1 = new Character(this, centerX - 30, centerY + 50, 'player1', 0, 1)
         this.attack1 = this.add.rectangle(0,0, 5, 5)
         this.physics.add.existing(this.attack1)
         
-        this.Player2 = new Character(this, centerX + 20, centerY + 50, 'player2', 0, 2)
+        this.Player2 = new Character(this, centerX + 30, centerY + 50, 'player2', 0, 2)
         this.attack2 = this.add.rectangle(0,0, 5, 5)
         this.physics.add.existing(this.attack2)
 
@@ -126,7 +126,17 @@ class Play extends Phaser.Scene {
             this.ps1++
             this.score1.text = `${this.ps1}`
             if(this.ps1 == 2 ){
+                tWinner = 1
                 //go to gameover
+                let textureManager = this.textures
+                this.game.renderer.snapshot((snapshotImage) => {
+                if(textureManager.exists('playsnapshot')) {
+                    textureManager.remove('playsnapshot')
+                }
+                textureManager.addImage('playsnapshot', snapshotImage)
+                this.bgm.stop()
+                this.scene.start('gameoverScene')
+            })
             } else {
                 this.time.delayedCall(600, () => this.reset())
                 if( this.ps1 + this.ps2 == 1){
@@ -139,7 +149,17 @@ class Play extends Phaser.Scene {
             this.ps2++
             this.score2.text = `${this.ps2}`
             if(this.ps2 == 2){
+                tWinner = 2
                 //go to gameover
+                let textureManager = this.textures
+                this.game.renderer.snapshot((snapshotImage) => {
+                if(textureManager.exists('playsnapshot')) {
+                    textureManager.remove('playsnapshot')
+                }
+                textureManager.addImage('playsnapshot', snapshotImage)
+                this.bgm.stop()
+                this.scene.start('gameoverScene')
+            })
             } else {
                 this.time.delayedCall(600, () => this.reset())
                 if( this.ps1 + this.ps2 == 1){

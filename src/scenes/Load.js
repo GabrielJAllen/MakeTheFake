@@ -14,14 +14,14 @@ class Load extends Phaser.Scene {
         this.load.spritesheet('aPrompt', './assets/img/a_prompt.png', {frameWidth: 10, frameHeight: 10})
         this.load.spritesheet('dPrompt', './assets/img/d_prompt.png', {frameWidth: 10, frameHeight: 10})
         this.load.spritesheet('heart', './assets/img/Heart-Sheet.png', {frameWidth: 36, frameHeight: 36})
-        this.load.spritesheet('player1', './assets/img/PlayerRed-Sheet.png', {frameWidth: 143, frameHeight: 128})
-        this.load.spritesheet('player2', './assets/img/PlayerBlue-Sheet.png', {frameWidth: 143, frameHeight: 128})
+        this.load.spritesheet('player1', './assets/img/PlayerRed-Sheet.png', {frameWidth: 151, frameHeight: 160})
+        this.load.spritesheet('player2', './assets/img/PlayerBlue-Sheet.png', {frameWidth: 155, frameHeight: 157})
         // Load audio
         this.load.audio('hit', "./assets/audio/temp_hit.wav")
         this.load.audio('click', './assets/audio/maou_se_system1.mp3')
         this.load.audio('attack', './assets/audio/maou_se_Attack.mp3')
         this.load.audio('bgm', './assets/audio/maou_bgm2.mp3')
-        this.load.audio('bgm', './assets/audio/maou_bgm1.mp3')
+        //this.load.audio('bgm', './assets/audio/maou_bgm1.mp3')
         // Load font
         this.load.bitmapFont('Pixel_font', './assets/font/Pixel.png', './assets/font/Pixel.xml')
     }
@@ -66,27 +66,40 @@ class Load extends Phaser.Scene {
             key:'player1Attack',
             frameRate: 5,
             repeat: 1,
-            frames: this.anims.generateFrameNumbers('player1', { frames:[0,1,0] }),
+            frames: this.anims.generateFrameNumbers('player1', { frames:[12, 13, 14, 15, 12]  }),
+        })
+        this.anims.create({
+            key:'player1Dodge',
+            frameRate: 5,
+            repeat: 1,
+            frames: this.anims.generateFrameNumbers('player1', { frames:[4, 5, 6, 6, 7, 8, 9, 10]  }),
         })
         this.anims.create({
             key:'player1Idle',
-            frameRate: 1,
-            repeat: 0,
-            frames: this.anims.generateFrameNumbers('player1', { frames:[0] }),
+            frameRate: 4,
+            repeat: -1,
+            frames: this.anims.generateFrameNumbers('player1', { frames:[0, 1, 2, 3] }),
         })
 
         this.anims.create({
             key:'player2Attack',
             frameRate: 5,
             repeat: 1,
-            frames: this.anims.generateFrameNumbers('player2', { frames:[0,1,0] }),
+            frames: this.anims.generateFrameNumbers('player2', { frames:[12, 13, 14, 15, 12] }),
         })
         this.anims.create({
             key:'player2Idle',
-            frameRate: 1,
-            repeat: 0,
-            frames: this.anims.generateFrameNumbers('player2', { frames:[0] }),
+            frameRate: 4,
+            repeat: -1,
+            frames: this.anims.generateFrameNumbers('player2', { frames:[0, 1, 2, 3] }),
         })
+        this.anims.create({
+            key:'player2Dodge',
+            frameRate: 5,
+            repeat: 1,
+            frames: this.anims.generateFrameNumbers('player2', { frames:[4, 5, 6, 6, 7, 8, 9, 10]  }),
+        })
+
         this.anims.create({
             key:'HeartIdle',
             frameRate: 1,
